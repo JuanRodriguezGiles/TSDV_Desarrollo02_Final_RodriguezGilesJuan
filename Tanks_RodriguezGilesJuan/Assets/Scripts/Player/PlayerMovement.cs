@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-public class PerpendicularMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public float movementSpeed;
     public float rotationSpeed;

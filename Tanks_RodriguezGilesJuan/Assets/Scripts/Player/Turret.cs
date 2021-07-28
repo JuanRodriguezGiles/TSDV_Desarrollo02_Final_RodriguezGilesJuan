@@ -4,6 +4,9 @@ public class Turret : MonoBehaviour
 {
     public float rotationSpeed = 5;
     public Transform turret;
+    public Transform projectileSpawn;
+    public Rigidbody projectile;
+    public float projectileForce = 20;
     Vector3 worldPosition;
     void Start()
     {
@@ -34,5 +37,11 @@ public class Turret : MonoBehaviour
 
             yield return null;
         } while (Quaternion.Angle(turret.rotation, _lookRotation) > 7f);
+        Fire();
+    }
+    void Fire()
+    {
+        Rigidbody shellInstance = Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation);
+        shellInstance.velocity = projectileForce * projectileSpawn.forward;
     }
 }
