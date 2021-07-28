@@ -4,7 +4,7 @@ public class PerpendicularMovement : MonoBehaviour
     public float movementSpeed;
     public float rotationSpeed;
     public Transform raycastPoint;
-    public GameObject tankModel;
+    public Transform tankModel;
 
     Vector3 _forwardDirection;
     float _rotationInput;

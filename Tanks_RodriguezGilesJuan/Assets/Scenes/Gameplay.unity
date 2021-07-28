@@ -197,8 +197,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409981638}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.5025356, y: 0.021565683, z: -0.012263923, w: 0.86420053}
+  m_LocalPosition: {x: 10.990396, y: 26.899876, z: -1.6715889}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -228,7 +228,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1065880146}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.00999999, z: 0}
+  m_LocalPosition: {x: 0, y: 0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 397953552463145468}
@@ -785,6 +785,7 @@ GameObject:
   - component: {fileID: 397953552463413935}
   - component: {fileID: 397953552463413936}
   - component: {fileID: 397953552463413938}
+  - component: {fileID: 397953552463413937}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -821,6 +822,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.7469122, y: 1.8782072, z: 2.1821434}
   m_Center: {x: -0.024705768, y: 0.9287207, z: -0.017459273}
+--- !u!114 &397953552463413937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397953552463413934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36617005fdc0c8b46a5315bbbb615588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 20
+  turret: {fileID: 397953552463096764}
 --- !u!114 &397953552463413938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -834,6 +849,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 12
-  raycastPoint: {fileID: 1065880147}
-  tankModel: {fileID: 397953552463374484}
   rotationSpeed: 180
+  raycastPoint: {fileID: 1065880147}
+  tankModel: {fileID: 397953552463047972}
