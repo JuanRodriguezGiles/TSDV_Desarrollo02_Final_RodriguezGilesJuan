@@ -28,15 +28,16 @@ public class Turret : MonoBehaviour
     }
     IEnumerator Rotate()
     {
-        Quaternion _lookRotation;
+        Quaternion lookRotation;
         do
         {
-            Vector3 _direction = (worldPosition - turret.position).normalized;
-            _lookRotation = Quaternion.LookRotation(_direction);
-            turret.rotation = Quaternion.Slerp(turret.rotation, _lookRotation, Time.deltaTime * rotationSpeed);
-
+            Vector3 direction = (worldPosition - turret.position).normalized;
+            lookRotation = Quaternion.LookRotation(direction);
+            lookRotation.eulerAngles = new Vector3(0, lookRotation.eulerAngles.y, 0);
+            turret.rotation = Quaternion.Slerp(turret.rotation, lookRotation, Time.deltaTime * rotationSpeed);
+            turret.rotation = Quaternion.Euler(0, turret.eulerAngles.y, 0);
             yield return null;
-        } while (Quaternion.Angle(turret.rotation, _lookRotation) > 7f);
+        } while (Quaternion.Angle(turret.rotation, lookRotation) > 3f);
         Fire();
     }
     void Fire()

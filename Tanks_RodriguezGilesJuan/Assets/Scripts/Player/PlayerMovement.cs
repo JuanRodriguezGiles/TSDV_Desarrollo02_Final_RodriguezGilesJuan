@@ -14,9 +14,6 @@ public class PlayerMovement : MonoBehaviour
     {
         _movementInput = Input.GetAxis("Vertical");
         _rotationInput = Input.GetAxis("Horizontal") * rotationSpeed;
-    }
-    void FixedUpdate()
-    {
         GroundTank();
         RotateTank();
         MoveTank();

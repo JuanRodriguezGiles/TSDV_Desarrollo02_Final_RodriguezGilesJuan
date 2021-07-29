@@ -219,7 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _offset: {x: 0, y: 5, z: -5}
   _rotation: {x: 30, y: 0, z: 0}
-  _playerTransform: {fileID: 397953552463145468}
+  playerTransform: {fileID: 397953552463145468}
 --- !u!1001 &436567253
 PrefabInstance:
   m_ObjectHideFlags: 0
