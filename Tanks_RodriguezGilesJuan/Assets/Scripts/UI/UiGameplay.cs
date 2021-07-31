@@ -30,4 +30,8 @@ public class UiGameplay : MonoBehaviour
     {
         Time.timeScale = 1;
     }
+    public void LoadMainMenuScene()
+    {
+        GameManager.Instance.LoadMainMenuScene();
+    }
 }

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-public class GameManager : MonoBehaviour
+using UnityEngine.SceneManagement;
+public class GameManager : MonoBehaviourSingletonPersistent<GameManager>
 {
     [SerializeField] float _maxTimeSeconds;
     public static event Action<float> onTimeChange;
@@ -24,5 +25,10 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
 
+    }
+    public void LoadMainMenuScene()
+    {
+        _time = _maxTimeSeconds;
+        SceneManager.LoadScene("MainMenu");
     }
 }
