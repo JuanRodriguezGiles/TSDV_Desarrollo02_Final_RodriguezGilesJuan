@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 public class CrateSpawner : MonoBehaviour
 {
     public float spawnTimer;
@@ -7,8 +6,8 @@ public class CrateSpawner : MonoBehaviour
     public GameObject crate;
     GameObject _crateParent;
     Terrain _terrain;
-    const int _minX = 5;
-    const int _minZ = 5;
+    const int _minX = 40;
+    const int _minZ = 40;
     int _maxX;
     int _maxZ;
     float _time;
@@ -32,7 +31,7 @@ public class CrateSpawner : MonoBehaviour
         {
             int x = Random.Range(_minX, _maxX);
             int z = Random.Range(_minZ, _maxZ);
-            float y = _terrain.terrainData.GetHeight(x, z) + 1;
+            float y = _terrain.SampleHeight(new Vector3(x, 0, z)) + 1;
             Vector3 position = new Vector3(x, y, z);
 
             GameObject go = Instantiate(crate, position, Quaternion.identity, _crateParent.transform);
