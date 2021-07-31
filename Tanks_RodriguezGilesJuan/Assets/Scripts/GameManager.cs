@@ -6,12 +6,8 @@ public class GameManager : MonoBehaviourSingletonPersistent<GameManager>
 {
     [SerializeField] float _maxTimeSeconds;
     public static event Action<float> onTimeChange;
+    public PlayerStats.Stats stats;
     float _time;
-    void Start()
-    {
-        _time = _maxTimeSeconds;
-        StartCoroutine(Timer());
-    }
     IEnumerator Timer()
     {
         while (_time > 0)
@@ -24,11 +20,22 @@ public class GameManager : MonoBehaviourSingletonPersistent<GameManager>
     }
     void GameOver()
     {
-
+        stats = FindObjectOfType<PlayerStats>().stats;
+        SceneManager.LoadScene("GameOver");
     }
     public void LoadMainMenuScene()
     {
         _time = _maxTimeSeconds;
         SceneManager.LoadScene("MainMenu");
+    }
+    public void LoadGameplayScene()
+    {
+        SceneManager.LoadScene("Gameplay");
+        _time = _maxTimeSeconds;
+        StartCoroutine(Timer());
+    }
+    public void LoadCreditsScene()
+    {
+        SceneManager.LoadScene("Credits");
     }
 }

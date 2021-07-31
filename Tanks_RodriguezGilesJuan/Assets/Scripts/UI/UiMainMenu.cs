@@ -4,11 +4,11 @@ public class UiMainMenu : MonoBehaviour
 {
     public void LoadGameplayScene()
     {
-        SceneManager.LoadScene("Gameplay");
+      GameManager.Instance.LoadGameplayScene();
     }
     public void LoadCreditsScene()
     {
-        SceneManager.LoadScene("Credits");
+       GameManager.Instance.LoadCreditsScene();
     }
     public void ExitGame()
     {
