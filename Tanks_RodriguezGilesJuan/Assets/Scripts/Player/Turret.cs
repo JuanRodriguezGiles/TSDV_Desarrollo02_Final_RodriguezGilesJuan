@@ -37,7 +37,7 @@ public class Turret : MonoBehaviour
             turret.rotation = Quaternion.Slerp(turret.rotation, lookRotation, Time.deltaTime * rotationSpeed);
             turret.rotation = Quaternion.Euler(0, turret.eulerAngles.y, 0);
             yield return null;
-        } while (Quaternion.Angle(turret.rotation, lookRotation) > 3f);
+        } while (Quaternion.Angle(turret.rotation, lookRotation) > 5f);
         Fire();
     }
     void Fire()
