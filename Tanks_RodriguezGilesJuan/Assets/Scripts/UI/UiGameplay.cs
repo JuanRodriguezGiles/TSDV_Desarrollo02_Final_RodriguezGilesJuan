@@ -7,10 +7,12 @@ public class UiGameplay : MonoBehaviour
     void OnEnable()
     {
         GameManager.onTimeChange += UpdateTimer;
+        PlayerStats.onScoreChange += UpdateScore;
     }
     void OnDisable()
     {
         GameManager.onTimeChange -= UpdateTimer;
+        PlayerStats.onScoreChange -= UpdateScore;
     }
     void UpdateTimer(float time)
     {
