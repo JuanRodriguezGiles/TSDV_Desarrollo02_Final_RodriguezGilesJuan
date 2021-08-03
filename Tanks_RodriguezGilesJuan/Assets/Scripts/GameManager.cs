@@ -36,6 +36,10 @@ public class GameManager : MonoBehaviourSingletonPersistent<GameManager>
         _time = _maxTimeSeconds;
         StartCoroutine(Timer());
     }
+    public void LoadHighScoreScene()
+    {
+        SceneManager.LoadScene("HighScores");
+    }
     public void LoadCreditsScene()
     {
         SceneManager.LoadScene("Credits");
