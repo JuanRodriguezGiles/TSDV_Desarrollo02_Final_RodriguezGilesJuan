@@ -9,14 +9,14 @@ public class PlayerMovement : MonoBehaviour
     Vector3 _forwardDirection;
     float _rotationInput;
     float _movementInput;
-
+ 
     void Update()
     {
         _movementInput = Input.GetAxis("Vertical");
         _rotationInput = Input.GetAxis("Horizontal") * rotationSpeed;
         GroundTank();
-        RotateTank();
-        MoveTank();
+        if (_movementInput != 0) MoveTank();
+        if (_rotationInput != 0) RotateTank();
     }
     void GroundTank()
     {

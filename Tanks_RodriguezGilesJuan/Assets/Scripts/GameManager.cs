@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviourSingletonPersistent<GameManager>
 {
     [SerializeField] float _maxTimeSeconds;
     public static event Action<float> onTimeChange;
+    public static event Action onGameOver;
     public PlayerStats.Stats stats;
     float _time;
     IEnumerator Timer()
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviourSingletonPersistent<GameManager>
     void GameOver()
     {
         stats = FindObjectOfType<PlayerStats>().stats;
+        onGameOver?.Invoke();
         SceneManager.LoadScene("GameOver");
     }
     public void LoadMainMenuScene()
