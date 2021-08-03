@@ -550,6 +550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crates: []
   cratesTransforms: []
+  loaded: 0
 --- !u!4 &409788383
 Transform:
   m_ObjectHideFlags: 0
@@ -1180,7 +1181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39206ce031ba20347b74e44030a105ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxTimeSeconds: 120
+  _maxTimeSeconds: 5
 --- !u!4 &941838597
 Transform:
   m_ObjectHideFlags: 0
