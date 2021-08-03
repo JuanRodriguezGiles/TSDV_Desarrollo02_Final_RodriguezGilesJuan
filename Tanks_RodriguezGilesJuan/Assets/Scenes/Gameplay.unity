@@ -817,7 +817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8f5f88e425ef749981cc1aed913b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTimer: 3
+  spawnTimer: 5
   spawnQuantity: 15
   crate: {fileID: 1000013743448318, guid: 05262e1cb6621c84f8f31dd5b4799010, type: 3}
 --- !u!1 &567382407
@@ -1567,7 +1567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39206ce031ba20347b74e44030a105ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxTimeSeconds: 5
+  _maxTimeSeconds: 120
 --- !u!1 &1033524908
 GameObject:
   m_ObjectHideFlags: 0

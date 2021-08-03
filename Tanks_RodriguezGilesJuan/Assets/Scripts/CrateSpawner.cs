@@ -33,8 +33,8 @@ public class CrateSpawner : MonoBehaviour
     {
         for (int i = 0; i < spawnQuantity; i++)
         {
-            int x = Random.Range(_minX, _maxX);
-            int z = Random.Range(_minZ, _maxZ);
+            int x = Random.Range(_minX, _maxX - 20);
+            int z = Random.Range(_minZ, _maxZ - 20);
             float y = _terrain.SampleHeight(new Vector3(x, 0, z)) + 1;
             Vector3 position = new Vector3(x, y, z);
 
