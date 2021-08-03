@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Text;
+using UnityEngine;
 public class CrateSpawner : MonoBehaviour
 {
     public float spawnTimer;
@@ -11,12 +13,14 @@ public class CrateSpawner : MonoBehaviour
     int _maxX;
     int _maxZ;
     float _time;
+
     void Start()
     {
         _terrain = FindObjectOfType<Terrain>();
         _maxX = (int)_terrain.terrainData.bounds.max.x;
         _maxZ = (int)_terrain.terrainData.bounds.max.z;
         _crateParent = new GameObject("Crates");
+        if (SaveManager.Instance.loaded) LoadCrates();
     }
     void Update()
     {
@@ -32,6 +36,22 @@ public class CrateSpawner : MonoBehaviour
             int x = Random.Range(_minX, _maxX);
             int z = Random.Range(_minZ, _maxZ);
             float y = _terrain.SampleHeight(new Vector3(x, 0, z)) + 1;
+            Vector3 position = new Vector3(x, y, z);
+
+            GameObject go = Instantiate(crate, position, Quaternion.identity, _crateParent.transform);
+        }
+    }
+    public void LoadCrates()
+    {
+        List<Position> crates = SaveManager.Instance.cratesTransforms;
+        SaveManager.Instance.loaded = false;
+
+        for (int i = 0; i < crates.Count; i++)
+        {
+            float x = crates[i].x;
+            float y = crates[i].y;
+            float z = crates[i].z;
+
             Vector3 position = new Vector3(x, y, z);
 
             GameObject go = Instantiate(crate, position, Quaternion.identity, _crateParent.transform);

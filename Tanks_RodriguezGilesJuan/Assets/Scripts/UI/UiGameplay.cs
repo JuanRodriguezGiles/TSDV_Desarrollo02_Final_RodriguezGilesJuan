@@ -34,4 +34,8 @@ public class UiGameplay : MonoBehaviour
     {
         GameManager.Instance.LoadMainMenuScene();
     }
+    public void SaveGame()
+    {
+        SaveManager.Instance.Save();
+    }
 }
