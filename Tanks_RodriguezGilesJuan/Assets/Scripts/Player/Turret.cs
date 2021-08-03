@@ -7,21 +7,24 @@ public class Turret : MonoBehaviour
     public Transform projectileSpawn;
     public Rigidbody projectile;
     public float projectileForce = 20;
-    Vector3 worldPosition;
+    Vector3 _worldPosition;
+    float _timer;
     void Start()
     {
         rotationSpeed /= 10;
     }
     void Update()
     {
+        _timer -= Time.deltaTime;
         if (!Input.GetMouseButtonDown(0)) return;
-
+        if (_timer > 0) return;
+        _timer = 1;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitData;
 
         if (Physics.Raycast(ray, out hitData, 1000))
         {
-            worldPosition = hitData.point;
+            _worldPosition = hitData.point;
         }
 
         StartCoroutine(Rotate());
@@ -31,7 +34,7 @@ public class Turret : MonoBehaviour
         Quaternion lookRotation;
         do
         {
-            Vector3 direction = (worldPosition - turret.position).normalized;
+            Vector3 direction = (_worldPosition - turret.position).normalized;
             lookRotation = Quaternion.LookRotation(direction);
             lookRotation.eulerAngles = new Vector3(0, lookRotation.eulerAngles.y, 0);
             turret.rotation = Quaternion.Slerp(turret.rotation, lookRotation, Time.deltaTime * rotationSpeed);
